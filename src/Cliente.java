@@ -3,6 +3,7 @@
  */
 
 import org.joda.time.DateTime;
+import org.joda.time.Period;
 
 /**
  * @author Chambi orellana, Liza Melody
@@ -160,6 +161,13 @@ public class Cliente
 	public String obtenerCorreoElectronico() 
 	{
 		return this.mail;
+	}
+
+	public Integer obtenerEdad() {
+		DateTime fechaActual = new DateTime();
+		long difernciaEnMs = fechaActual.getMillis() - this.fechaDeNacimiento.getMillis() ;
+		long fechaEndias = difernciaEnMs / (1000*60*60*24);
+		return (int) fechaEndias/365 ;
 	}
 	
 }

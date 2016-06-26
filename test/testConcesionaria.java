@@ -38,7 +38,7 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		Cliente clienteMockLiza = mock(Cliente.class);
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		concesionario.agregarCliente(clienteMockLiza);
 		
@@ -56,7 +56,7 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		PlanDeAhorro planDeAhorroMock2 = mock(PlanDeAhorro.class);		
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		concesionario.agregarPlanDeAhorro(planDeAhorroMock2);
 		
@@ -74,7 +74,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Cliente clienteMockMelody = mock(Cliente.class);		
 		List<Cliente> todosLosClientesMelody = new ArrayList<Cliente>();		
@@ -96,7 +96,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 		
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		PlanDeAhorro planDeAhorroMock1 = mock(PlanDeAhorro.class);
 		List<PlanDeAhorro> planesDeAhorroConPlan1 = new ArrayList<PlanDeAhorro>();
@@ -117,7 +117,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
 		assertTrue(concesionario.obtenerFabrica().equals(fabricaMock));
@@ -133,7 +133,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionariaCon11Planes = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		PlanDeAhorro planMock1 = mock(PlanDeAhorro.class);
 		PlanDeAhorro planMock2 = mock(PlanDeAhorro.class);
@@ -185,7 +185,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Modelo modeloMock = mock(Modelo.class);
 	
@@ -209,7 +209,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Modelo modeloMock = mock(Modelo.class);
 		Planta plantaMasCercana = concesionario.plantaMasCercana(modeloMock);
@@ -228,7 +228,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Planta plantaMock = mock (Planta.class);
 
@@ -248,7 +248,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
 		Planta plantaMock = mock(Planta.class);
@@ -270,7 +270,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock(GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Planta plantaMock = mock(Planta.class);
 		
@@ -290,7 +290,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
 		assertEquals(concesionario.obtenerDireccion(), "direccion");
@@ -306,7 +306,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
 		assertEquals(concesionario.obtenerFlete(), fleteMock);
@@ -347,7 +347,7 @@ public class testConcesionaria
 		Fabrica fabricaMock = mock (Fabrica.class);
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);		
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);		
 		List<Stock> miStock = new ArrayList<Stock>();
 		List<Stock> otroStock = new ArrayList<Stock>();
 		Stock stockMock1 = mock(Stock.class);
@@ -371,7 +371,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 		Stock stockMock1 = mock(Stock.class);
 		
 		miStock.add(stockMock1);
@@ -389,7 +389,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 
 		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);
 		
@@ -403,7 +403,7 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
 		PlanDeAhorro planMock1 = mock (PlanDeAhorro.class);
 		PlanDeAhorro planMock2 = mock (PlanDeAhorro.class);
 

@@ -80,4 +80,14 @@ public class testClientes
 		assertTrue(liza.obtenerCorreoElectronico().equals("liza.chambi@gmail.com"));
 	}
 	
+	@Test
+	public void testPruebaCalculoDeEdadesDadoUnaPersonaDeEdad22SiLePreguntoSiSuEdadEs22RespondeTrue(){
+		assertTrue(this.liza.obtenerEdad().equals(22));
+	}
+	
+	@Test
+	public void testPruebaCalculoDeEdadesDadoUnaPersonaDeEdad22SiLePreguntoSiSuEdadEs23RespondeFalse(){
+		assertFalse(this.liza.obtenerEdad().equals(23));
+	}
+	
 }

@@ -26,7 +26,7 @@ public class testPlanDeAhorro {
 
 	@Test
 	public void testPlanSinParticipantes() {
-		assertEquals(miPlan.cantidadDeParticipantes(),0);
+		assertEquals(miPlan.cantidadDeParticipantes(),(Integer)0);
 	}
 	@Test
 	public void testClientesQueNoAdjudicaron(){
@@ -63,7 +63,7 @@ public class testPlanDeAhorro {
 		listaDeParticipantes.add(miParticipante3);
 
 		
-		assertEquals(miPlan.cantidadDeParticipantes(),3);
+		assertEquals(miPlan.cantidadDeParticipantes(),(Integer)3);
 		assertTrue(miPlan.listaDeParticipantes().equals(listaDeParticipantes));
 		
 	}

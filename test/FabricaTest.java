@@ -61,8 +61,7 @@ public class FabricaTest {
 		Modelo otroModelo  = mock(Modelo.class);
 		assertFalse(miFabrica.produceModelo(otroModelo));
 	}
-	
-	
+		
 	@Test
 	public void testDadoUnaFabricaConDosPlantasQueProducenFordFocusDevuelveLaListaConAmbasPlantas(){
 		miFabrica.agregarPlantaProduccion(plantaMock);
@@ -108,6 +107,4 @@ public class FabricaTest {
 		fabricaMock.plantaMasCercanaQueProduceConStock(modeloFocus);
 	}
 
-	//falta buscar por stock, si no hay stock generar excepcion
-	//agregar el valor del movil al modelo*/
 }

@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
-
-import static org.mockito.Mockito.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,6 +31,7 @@ public class Fabrica {
 	public List<Planta> plantasQueProducen(Modelo modeloMock) {
 		return listaDePlantas.stream().filter(planta -> planta.produceModelo(modeloMock)).collect(Collectors.toList());
 	}
+	
 
 	public Planta plantaMasCercanaQueProduce(Modelo modeloMock) {
 		List<Planta> listaAux = new ArrayList<Planta>();
@@ -60,6 +58,8 @@ public class Fabrica {
 		/*listaDePlantas = listaDePlantas.stream().filter(planta -> planta.tieneStockDe(modeloFocus)).collect(Collectors.toList());
 		return this.plantaMasCercanaQueProduce(modeloFocus);*/
 	}
+
+
 	
 	
 	

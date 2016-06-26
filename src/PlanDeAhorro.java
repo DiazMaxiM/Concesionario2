@@ -85,12 +85,14 @@ public PlanDeAhorro(ModalidadDeAdjudicacion modalidad,Integer numeroDeGrupo,Tipo
 	public void agregarParticipante(Participante participante) {
 		listaDeParticipantes.add(participante);
 	}
-	public Integer cantidadDeCuotas() {
 	
+	public Integer cantidadDeCuotas() {
 		return this.cantidadDeCuotas;
 	}
+	
 	public float precioDelVehiculo() {
 		return (float)this.modelo.precioMovil();
 	}
+
 		   
 }
