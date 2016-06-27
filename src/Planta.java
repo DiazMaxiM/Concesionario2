@@ -55,5 +55,15 @@ public class Planta {
 		return this.listaDeModelos.contains(unModelo);
 	}
 	
+	/**
+	 * 
+	 * @return: Devuelve la direccion de la planta.
+	 */
+	public String obtenerDireccion() 
+	{	
+		// IMPLEMENTAME!!! :D YO SOY TU NUEVO "PUNTO EN EL MAPA" 
+		// REEMPLAZA A ESA BESTIA POR MI, YO SOY MEJOR <3
+		return null;
+	}
 
 }

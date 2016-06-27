@@ -20,12 +20,12 @@ public class Concesionaria
 	private Flete flete;
 	private List<Stock> stockDeVehiculos;
 	private CompaniaAseguradora companiaAseguradora;
-
+	private List<CuponDeAdjudicacion> cuponesDeAdjudicacion;
 	/**
 	 * @param unaFabrica : Es la fabrica asociada a la concesionararia que produce los autos a vender.
 	 * @param unaDireccion : Es la direccion que tendra la concesionaria.
 	 */
-	public Concesionaria (Fabrica unaFabrica, String unaDireccion, GoogleMap unMapa, Flete unFlete, List<Stock> stocksDeVehiculos, CompaniaAseguradora unaCompaniaAseguradora)
+	public Concesionaria (Fabrica unaFabrica, String unaDireccion, GoogleMap unMapa, Flete unFlete, List<Stock> stocksDeVehiculos, CompaniaAseguradora unaCompaniaAseguradora, List<CuponDeAdjudicacion> cupones)
 	{
 		this.clientes = new ArrayList<Cliente> ();
 		this.planesDeAhorro = new ArrayList<PlanDeAhorro>();
@@ -35,8 +35,14 @@ public class Concesionaria
 		this.cambiarFlete(unFlete);
 		this.cambiarStockDeVehiculos(stocksDeVehiculos);
 		this.cambiarCompaniaAseguradora(unaCompaniaAseguradora);
+		this.cambiarCuponesDeAdjudicacion(cupones);
 	}
 
+	private void cambiarCuponesDeAdjudicacion(List<CuponDeAdjudicacion> cupones) 
+	{
+		this.cuponesDeAdjudicacion = cupones;
+	}
+	
 	private void cambiarCompaniaAseguradora(CompaniaAseguradora unaCompaniaAseguradora) 
 	{
 		this.companiaAseguradora = unaCompaniaAseguradora;
@@ -199,7 +205,7 @@ public class Concesionaria
 		Boolean resultado = true;
 		for (int index= 0; index < stockC.size(); index++)
 		{
-			resultado &= (stockC.get(index).igualA (stockF.get(index)));
+			resultado &= (stockC.get(index).esIgualA (stockF.get(index)));
 		}
 		return resultado;
 	}
@@ -215,27 +221,46 @@ public class Concesionaria
 		return stockDeVehiculos;
 	}
 
-	public Aseguradora obtenerCompaniaAseguradora() 
+	public CompaniaAseguradora obtenerCompaniaAseguradora() 
 	{
 		return companiaAseguradora;
 	}
 
-	public void ejecutarAdjudicaciones() 
+	public void ejecutarAdjudicaciones() throws ExceptionAdjudicarPlanSinParticipantes 
 	{
-		this.planesDeAhorro.stream().forEach(plan -> adjudicarPlan(plan.adjudicar() ));
+		//obtenerPlanesDeAhorro().stream().forEach(plan -> adjudicarPlan(plan.adjudicar() ));
 	}
 
-	private void adjudicarPlan(Participante participante) 
+	private void adjudicarPlan (Participante participante) 
 	{
 		// Entregar el vehiculo
 		// Generar el cupon
 		// Registrarlo en la concesionaria
-		return null;
+	}
+	
+	public Integer obtenerStockDelModelo(Modelo modeloABuscar) 
+	{
+		return ((stockDeVehiculos.stream().filter(stock -> stock.esStockDe(modeloABuscar) )).findFirst().get()).totalStock();
 	}
 
+	public void actualizarStockDeVehiculos() 
+	{
+		cambiarStockDeVehiculos(obtenerFabrica().stockDeProduccion());
+	}
 
+	public void adjudicarVehiculo(Modelo modeloAAdjudicar) 
+	{
+		obtenerFabrica().entregarVehiculo(modeloAAdjudicar);
+	}
 	
-	
-	
+	public List<CuponDeAdjudicacion> obtenerCuponesDeAdjudicacion() 
+	{
+		return cuponesDeAdjudicacion;
+	}
+
+	public void registrarCuponDeAdjudicacion(CuponDeAdjudicacion cupon) 
+	{
+		this.cuponesDeAdjudicacion.add(cupon);
+	}
 	
 }

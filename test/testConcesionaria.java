@@ -39,8 +39,10 @@ public class testConcesionaria
 		List<Stock> miStock = new ArrayList<Stock>();
 		Cliente clienteMockLiza = mock(Cliente.class);
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		concesionario.agregarCliente(clienteMockLiza);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);		
+		concesionario.agregarCliente(clienteMockLiza);
 		
 		assertTrue(concesionario.obtenerClientes().contains(clienteMockLiza));
 	}
@@ -57,8 +59,10 @@ public class testConcesionaria
 		List<Stock> miStock = new ArrayList<Stock>();
 		PlanDeAhorro planDeAhorroMock2 = mock(PlanDeAhorro.class);		
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		concesionario.agregarPlanDeAhorro(planDeAhorroMock2);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		concesionario.agregarPlanDeAhorro(planDeAhorroMock2);
 		
 		assertTrue(concesionario.obtenerPlanesDeAhorro().contains(planDeAhorroMock2));
 	}
@@ -75,8 +79,10 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Cliente clienteMockMelody = mock(Cliente.class);		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		Cliente clienteMockMelody = mock(Cliente.class);		
 		List<Cliente> todosLosClientesMelody = new ArrayList<Cliente>();		
 		
 		concesionario.agregarCliente(clienteMockMelody);
@@ -97,8 +103,10 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
-		
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		PlanDeAhorro planDeAhorroMock1 = mock(PlanDeAhorro.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
+
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		PlanDeAhorro planDeAhorroMock1 = mock(PlanDeAhorro.class);
 		List<PlanDeAhorro> planesDeAhorroConPlan1 = new ArrayList<PlanDeAhorro>();
 		
 		concesionario.agregarPlanDeAhorro(planDeAhorroMock1);
@@ -118,8 +126,9 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
 		assertTrue(concesionario.obtenerFabrica().equals(fabricaMock));
 	}
 	
@@ -134,8 +143,10 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionariaCon11Planes = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		PlanDeAhorro planMock1 = mock(PlanDeAhorro.class);
+		Concesionaria concesionariaCon11Planes = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		PlanDeAhorro planMock1 = mock(PlanDeAhorro.class);
 		PlanDeAhorro planMock2 = mock(PlanDeAhorro.class);
 		PlanDeAhorro planMock3 = mock(PlanDeAhorro.class);
 		PlanDeAhorro planMock4 = mock(PlanDeAhorro.class);
@@ -186,8 +197,10 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Modelo modeloMock = mock(Modelo.class);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		Modelo modeloMock = mock(Modelo.class);
 	
 		Boolean hayStock = new Boolean("True");
 		Planta plantaMasCercanaMock = mock(Planta.class);
@@ -210,8 +223,10 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Modelo modeloMock = mock(Modelo.class);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		Modelo modeloMock = mock(Modelo.class);
 		Planta plantaMasCercana = concesionario.plantaMasCercana(modeloMock);
 		
 		doThrow(new SinVehiculosDelModeloSolicitado()).when(concesionario.plantaMasCercana(modeloMock));
@@ -229,8 +244,10 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Planta plantaMock = mock (Planta.class);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		Planta plantaMock = mock (Planta.class);
 
 		when(concesionario.costoDeEnvio(plantaMock, fleteMock)).thenReturn(10000);
 		
@@ -249,8 +266,9 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "miDireccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
 		Planta plantaMock = mock(Planta.class);
 		
 		when (mapaMock.obtenerDistancia("miDireccion","direccionDestino")).thenReturn(34000);
@@ -271,9 +289,11 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		Planta plantaMock = mock(Planta.class);
-		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "miDireccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		Planta plantaMock = mock(Planta.class);
+
 		when (mapaMock.obtenerDistancia("miDireccion","direccionDestino")).thenReturn(34000);
 		when (plantaMock.obtenerDireccion()).thenReturn("direccionDestino");
 		
@@ -291,8 +311,9 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
 		assertEquals(concesionario.obtenerDireccion(), "direccion");
 	}
 	
@@ -307,8 +328,9 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
 		assertEquals(concesionario.obtenerFlete(), fleteMock);
 	}
 	
@@ -323,16 +345,19 @@ public class testConcesionaria
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
-		Aseguradora aseguradoraMock = mock (Aseguradora.class);
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 		Stock stockMock1 = mock(Stock.class);
 		Stock stockMock2 = mock(Stock.class);
-	
+		
 		miStock.add(stockMock1);
 		miStock.add(stockMock2);
-
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		when(fabricaMock.stockDeProduccion()).thenReturn(miStock);
-		when(stockMock1.igualA(stockMock1)).thenReturn(true);
-		when(stockMock2.igualA(stockMock2)).thenReturn(true);
+	
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		when(fabricaMock.stockDeProduccion()).thenReturn(miStock);
+		when(stockMock1.esIgualA(stockMock1)).thenReturn(true);
+		when(stockMock2.esIgualA(stockMock2)).thenReturn(true);
+		
 		assertTrue(concesionario.tieneLosMismosStocks());
 	}
 
@@ -350,6 +375,7 @@ public class testConcesionaria
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);		
 		List<Stock> miStock = new ArrayList<Stock>();
 		List<Stock> otroStock = new ArrayList<Stock>();
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 		Stock stockMock1 = mock(Stock.class);
 		Stock stockMock2 = mock(Stock.class);
 		
@@ -357,7 +383,8 @@ public class testConcesionaria
 		miStock.add(stockMock2);
 		otroStock.add(stockMock1);
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		when(fabricaMock.stockDeProduccion()).thenReturn(otroStock);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		when(fabricaMock.stockDeProduccion()).thenReturn(otroStock);
 		assertFalse(concesionario.tieneLosMismosStocks());
 	}
 	
@@ -372,11 +399,12 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 		Stock stockMock1 = mock(Stock.class);
 		
 		miStock.add(stockMock1);
-
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);		when(stockMock1.igualA(stockMock1)).thenReturn(true);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		when(stockMock1.esIgualA(stockMock1)).thenReturn(true);
 		when(fabricaMock.stockDeProduccion()).thenReturn(miStock);
 		
 		assertEquals(concesionario.obtenerStockDeVehiculos(), miStock);
@@ -390,31 +418,54 @@ public class testConcesionaria
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
 		
 		assertEquals(concesionario.obtenerCompaniaAseguradora(), aseguradoraMock);
 	}
 	
 	@Test
-	public void testEjecutarAdjudicaciones()
+	public void testAdjudicarVehiculo()
 	{
 		Fabrica fabricaMock = mock (Fabrica.class);
 		GoogleMap mapaMock = mock (GoogleMap.class);
 		Flete fleteMock = mock (Flete.class);
 		List<Stock> miStock = new ArrayList<Stock>();
 		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
-		PlanDeAhorro planMock1 = mock (PlanDeAhorro.class);
-		PlanDeAhorro planMock2 = mock (PlanDeAhorro.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
+		PlanDeAhorro planMock = mock (PlanDeAhorro.class);
+		Modelo modeloMock = mock (Modelo.class);
+		Stock stockMock1 = mock (Stock.class);
 
-		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock);
-		concesionario.agregarPlanDeAhorro(planMock1);
-		concesionario.agregarPlanDeAhorro(planMock2);
-		when(planMock1.adjudicar()).thenReturn();
+		miStock.add(stockMock1);
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);	
+		concesionario.agregarPlanDeAhorro(planMock);
+		when(stockMock1.esStockDe(modeloMock)).thenReturn(true);
+		when(stockMock1.totalStock()).thenReturn(1);
+		when(fabricaMock.stockDeProduccion()).thenReturn(miStock);
 		
-		concesionario.ejecutarAdjudicaciones();
+		concesionario.adjudicarVehiculo(modeloMock);
+		concesionario.actualizarStockDeVehiculos();
 		
-		//assertEquals(concesionario.ejecutarAdjudicaciones(), aseguradoraMock);
+		assertTrue(concesionario.obtenerStockDelModelo(modeloMock).equals(1));
+	}
+	
+	@Test
+	public void testRegistrarCuponDeAdjudicacion()
+	{
+		Fabrica fabricaMock = mock (Fabrica.class);
+		GoogleMap mapaMock = mock (GoogleMap.class);
+		Flete fleteMock = mock (Flete.class);
+		List<Stock> miStock = new ArrayList<Stock>();
+		CompaniaAseguradora aseguradoraMock = mock (CompaniaAseguradora.class);
+		List<CuponDeAdjudicacion> cuponesMock = new ArrayList<CuponDeAdjudicacion>();
+		CuponDeAdjudicacion cuponMock = mock (CuponDeAdjudicacion.class);
+		
+		Concesionaria concesionario = new Concesionaria(fabricaMock, "direccion", mapaMock, fleteMock, miStock, aseguradoraMock, cuponesMock);
+		concesionario.registrarCuponDeAdjudicacion(cuponMock);
+		
+		assertTrue(concesionario.obtenerCuponesDeAdjudicacion().contains(cuponMock));
 	}
 	
 }

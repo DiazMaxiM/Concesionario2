@@ -35,4 +35,16 @@ public class Stock {
 		}
 	}
 
+	/**
+	 * PROPOSITO: Dado un stock, comparo si su modelo y cantidad de vehiculos es igual al mio.
+	 * @param stockAComparar: Es el stock con el que me voy a comparar.
+	 * @return: True si son iguales, de lo contrario devuelve False.
+	 */
+	public Boolean esIgualA (Stock stockAComparar) 
+	{
+		return (this.nombreDeModelo()==stockAComparar.nombreDeModelo() 
+				&& (this.cantidadVehiculos==stockAComparar.cantidadVehiculos)
+				);
+	}
+	
 }

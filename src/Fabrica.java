@@ -59,7 +59,23 @@ public class Fabrica {
 		return this.plantaMasCercanaQueProduce(modeloFocus);*/
 	}
 
+	/**
+	 * @return: Retorna el stock total de todas las plantas.
+	 */
+	public List<Stock> stockDeProduccion() 
+	{
+		// IMPLEMEEENTAME! IMPLEMEEENTAME! X3
+		return null;
+	}
 
+	/**
+	 * PROPOSITO: Entregar un vehiculo del modeloAAdjudicar mas cercano a la Concesionaria.
+	 * @param modeloAAdjudicar: Es el modelo de vehiculo a adjudicar.
+	 */
+	public void entregarVehiculo(Modelo modeloAAdjudicar) 
+	{
+		// HOLA! :D ME IMPLEMENTAS? SI? SI? SI? OwO
+	}
 	
 	
 	
