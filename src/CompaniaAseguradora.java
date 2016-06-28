@@ -17,12 +17,13 @@ public class CompaniaAseguradora {
 	}
 
 	private Float montoPorParticipante() {
-		Integer edadParticipante = 50; //this.participante.obtenerCliente().obtenerEdad();
+		Integer edadParticipante = this.participante.obtenerCliente().obtenerEdad();
+		Float dineroAPagar=new Float(50);
 		if(edadParticipante >= 50){
 			Integer plusPorEdad = edadParticipante - 50;
-			return 50 + (10 * (float)plusPorEdad);
+			dineroAPagar+=(10 * (float)plusPorEdad);
 		}
-		return (float) 50;
+		return dineroAPagar;
 	}
 
 	
