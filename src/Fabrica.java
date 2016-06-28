@@ -20,30 +20,29 @@ public class Fabrica {
 		return this.listaDeModelosAProducir;
 	}
 	
-	public void agregarPlantaProduccion(Planta unaPlanta) {
-		listaDePlantas.add(unaPlanta);	
-	}
-
 	public Boolean produceModelo(Modelo unModelo) {
 		return this.listaDeModelosAProducir.contains(unModelo);
-	}
-
-	public List<Planta> plantasQueProducen(Modelo modeloMock) {
-		return listaDePlantas.stream().filter(planta -> planta.produceModelo(modeloMock)).collect(Collectors.toList());
-	}
-	
-
-	public Planta plantaMasCercanaQueProduce(Modelo modeloMock) {
-		List<Planta> listaAux = new ArrayList<Planta>();
-		listaAux = this.plantasQueProducen(modeloMock);
-		return listaAux.stream().min((Planta plantaUno, Planta plantaDos) -> plantaUno.puntoEnElMapa().compareTo(plantaDos.puntoEnElMapa())).get();
-		
 	}
 
 	public Boolean tieneStockDe(Modelo modeloMock) {
 		List<Planta> listaPlantasQueProducenUnModelo = new ArrayList<Planta>();
 		listaPlantasQueProducenUnModelo = listaDePlantas.stream().filter(planta -> planta.tieneStockDe(modeloMock)).collect(Collectors.toList());
 		return listaPlantasQueProducenUnModelo.size()>0;
+	}
+/*
+	public List<Planta> plantasQueProducen(Modelo modeloMock) {
+		return listaDePlantas.stream().filter(planta -> planta.produceModelo(modeloMock)).collect(Collectors.toList());
+	}
+	
+	public void agregarPlantaProduccion(Planta unaPlanta) {
+		listaDePlantas.add(unaPlanta);	
+	}
+	
+	public Planta plantaMasCercanaQueProduce(Modelo modeloMock) {
+		List<Planta> listaAux = new ArrayList<Planta>();
+		listaAux = this.plantasQueProducen(modeloMock);
+		return listaAux.stream().min((Planta plantaUno, Planta plantaDos) -> plantaUno.puntoEnElMapa().compareTo(plantaDos.puntoEnElMapa())).get();
+		
 	}
 
 	public Planta plantaMasCercanaQueProduceConStock(Modelo modeloFocus) throws ExceptionFaltanteStock{
@@ -55,8 +54,6 @@ public class Fabrica {
 		else{
 			throw new ExceptionFaltanteStock();
 		}
-		/*listaDePlantas = listaDePlantas.stream().filter(planta -> planta.tieneStockDe(modeloFocus)).collect(Collectors.toList());
-		return this.plantaMasCercanaQueProduce(modeloFocus);*/
 	}
 
 	/**
@@ -72,11 +69,11 @@ public class Fabrica {
 	 * PROPOSITO: Entregar un vehiculo del modeloAAdjudicar mas cercano a la Concesionaria.
 	 * @param modeloAAdjudicar: Es el modelo de vehiculo a adjudicar.
 	 */
-	public void entregarVehiculo(Modelo modeloAAdjudicar) 
+	/*public void entregarVehiculo(Modelo modeloAAdjudicar) 
 	{
 		// HOLA! :D ME IMPLEMENTAS? SI? SI? SI? OwO
 	}
-	
+	*/
 	
 	
 	

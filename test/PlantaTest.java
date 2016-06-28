@@ -19,12 +19,12 @@ public class PlantaTest {
 		//modeloKa = new Modelo("Ka", 2016, 5, true);
 		//modeloFocus = new Modelo("Focus", 2016, 5, true);
 		listaDeModelos = new ArrayList<Modelo>();
-		miPlanta = new Planta(listaDeModelos, 150);
+		miPlanta = new Planta(listaDeModelos, "Liniers 724");
 	}
 	
 	@Test
 	public void testPlantaConsistente() {
-		assertTrue(miPlanta.puntoEnElMapa().equals(150));
+		assertTrue(miPlanta.obtenerDireccion().equals("Liniers 724"));
 		assertEquals(miPlanta.listaDeModelos(),listaDeModelos);
 	}
 	

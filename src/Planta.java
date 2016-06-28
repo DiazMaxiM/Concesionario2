@@ -4,13 +4,14 @@ import java.util.stream.Collectors;
 
 public class Planta {
 
-	private List<Modelo> listaDeModelos = new ArrayList<Modelo>();
-	private Integer puntoEnElMapa;
+	private List<Modelo> listaDeModelos;// = new ArrayList<Modelo>();
+	private String direccion;
 	private List<Stock> stocks;
 
-	public Planta(List<Modelo> listaDeModelos, Integer puntoEnElMapa) {
-		this.puntoEnElMapa = puntoEnElMapa;
+	public Planta(List<Modelo> listaDeModelos, String direccion) {
+		this.direccion = direccion;
 		this.stocks = new ArrayList<Stock>();
+		this.listaDeModelos = listaDeModelos;
 		for (Modelo modelo : listaDeModelos) {
 			agregarModeloAProducir(modelo);
 		}
@@ -19,9 +20,13 @@ public class Planta {
 	public List<Modelo> listaDeModelos() {
 		return this.listaDeModelos;
 	}
-
-	public Integer puntoEnElMapa() {
-		return this.puntoEnElMapa;
+	
+	/**
+	 * 
+	 * @return: Devuelve la direccion de la planta.
+	 */
+	public String obtenerDireccion() {
+		return this.direccion;
 	}
 
 	public Integer stockTotalEnPlanta() {
@@ -55,15 +60,4 @@ public class Planta {
 		return this.listaDeModelos.contains(unModelo);
 	}
 	
-	/**
-	 * 
-	 * @return: Devuelve la direccion de la planta.
-	 */
-	public String obtenerDireccion() 
-	{	
-		// IMPLEMENTAME!!! :D YO SOY TU NUEVO "PUNTO EN EL MAPA" 
-		// REEMPLAZA A ESA BESTIA POR MI, YO SOY MEJOR <3
-		return null;
-	}
-
 }

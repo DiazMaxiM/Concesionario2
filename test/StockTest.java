@@ -48,4 +48,19 @@ public class StockTest {
 		Modelo modeloFocus = mock(Modelo.class);
 		assertFalse(miStock.esStockDe(modeloFocus));
 	}
+	
+	@Test
+	public void testDadoUnStockVerificoQueSeaDeMiModeloYLaCantidadSeaLaMisma(){
+		//assertTrue(miStock.esStockDe(modeloKa));
+		assertTrue(miStock.esIgualA(miStock));
+	}
+	
+	@Test
+	public void testDadoUnStockYComparoConOtroStockQueNoSeaDeMiModeloYLaCantidadNoEsLaMisma(){
+		Modelo modeloFocus = mock(Modelo.class);
+		Stock otroStock = new Stock(3, modeloFocus);
+		assertFalse(miStock.esIgualA(otroStock));
+	}
+	
+	
 }

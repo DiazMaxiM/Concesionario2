@@ -42,7 +42,7 @@ public class Stock {
 	 */
 	public Boolean esIgualA (Stock stockAComparar) 
 	{
-		return (this.nombreDeModelo()==stockAComparar.nombreDeModelo() 
+		return (this.obtenerModelo()==stockAComparar.obtenerModelo() 
 				&& (this.cantidadVehiculos==stockAComparar.cantidadVehiculos)
 				);
 	}
