@@ -13,24 +13,36 @@ public class CompaniaAseguradoraTest {
 	private CompaniaAseguradora companiaAseguradora;
 	private Participante participanteMock ;
 	private PlanDeAhorro planDeAhorroMock ;
-
+	private Cliente clienteMock = mock (Cliente.class);
 	@Before
 	public void setUp() throws Exception {
 		participanteMock  = mock(Participante.class);
 		planDeAhorroMock = mock(PlanDeAhorro.class);
 		companiaAseguradora = new CompaniaAseguradora(participanteMock,planDeAhorroMock);
+		when(participanteMock.obtenerCliente()).thenReturn(clienteMock);
+		when(clienteMock.obtenerEdad()).thenReturn(22);
+		when(planDeAhorroMock.precioDelVehiculo()).thenReturn((float)0);
 		}
 	
 	@Test
-	public void testDadoUnaCompaniaAseguradoraElMontoAAbonarPorUnParticipanteDeEdad20Es50() {
-		when(participanteMock.obtenerCliente().obtenerEdad()).thenReturn(22);
-		when(planDeAhorroMock.precioDelVehiculo()).thenReturn((float)0);
-		assertTrue(companiaAseguradora.montoAAbonarPorParticipante().equals((float)50));
+	public void testDadoUnaCompaniaAseguradoraElMontoAAbonarPorUnParticipanteDeEdad22Es50() {
+		when(clienteMock.obtenerEdad()).thenReturn(22);
+		assertEquals(companiaAseguradora.montoAAbonarPorParticipante(), new Float(50));
 	}
 	
 	@Test
-	public void testDadoUnaCompaniaAseguradoraElMontoAAbonarPorUnParticipanteDeEdad50Es60(){	
-		assertFalse(companiaAseguradora.montoAAbonarPorParticipante().equals(60));
+	public void testDadoUnaCompaniaAseguradoraElMontoAAbonarPorUnParticipanteDeEdad22NoEs60(){	
+		when(clienteMock.obtenerEdad()).thenReturn(22);
+		assertNotEquals(companiaAseguradora.montoAAbonarPorParticipante(), new Float(60));
 	}
+	
+	@Test
+	public void testDadoUnaCompaniaAseguradoraElMontoAAbonarPorUnParticipanteDeEdad51Es60(){	
+		when(clienteMock.obtenerEdad()).thenReturn(51);
+		assertEquals(companiaAseguradora.montoAAbonarPorParticipante(), new Float(60));
+	}
+	
+	
 
+	
 }
