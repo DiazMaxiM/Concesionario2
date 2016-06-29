@@ -18,18 +18,14 @@ public class FabricaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		//listaDeModelos = new ArrayList<Modelo>();
-		listaDeModelos = mock(List.class);
+		listaDeModelos = new ArrayList<Modelo>();
 		listaDeModelos.add(modeloKa);
 		listaDeModelos.add(modeloFocus);
 		
-		//plantaMock = mock(Planta.class); 
-		plantaMock = new Planta(listaDeModelos, "direccion uno");
-		//plantaMasCercana = mock(Planta.class); 
-		plantaMasCercana  =new Planta(listaDeModelos, "direccion dos");
-		
-		//listaDePlantas = new ArrayList<Planta>();
-		listaDePlantas = mock(List.class);
+		plantaMock = mock(Planta.class); 
+		plantaMasCercana = mock(Planta.class); 
+	
+		listaDePlantas = new ArrayList<Planta>();
 		listaDePlantas.add(plantaMock);
 		listaDePlantas.add(plantaMasCercana);
 		
@@ -44,7 +40,7 @@ public class FabricaTest {
 	
 	@Test
 	public void testDadoUnaFabricaConUnaListaDeModelosSiLePreguntoSiTieneOtraListaDevuelveFalse(){
-		List<Modelo> otraListaDeModelos = mock(List.class);
+		List<Modelo> otraListaDeModelos = new ArrayList<Modelo>();
 		Modelo modeloMock = mock(Modelo.class);
 		otraListaDeModelos.add(modeloMock);
 		assertNotEquals(miFabrica.listaDeModelos(),otraListaDeModelos);
@@ -69,6 +65,7 @@ public class FabricaTest {
 		
 	@Test
 	public void testDadoUnaFabricaConUnaPlantaQueProduceFordFocusConStockSiLePreguntoSiTieneStockYEsDeFordFocusRespondeTrue(){
+		when(plantaMock.tieneStockDe(modeloFocus)).thenReturn(true);
 		assertTrue(miFabrica.tieneStockDe(modeloFocus));
 	}
 	

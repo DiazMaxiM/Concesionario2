@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Fabrica {
-
+ 
 	private List<Planta> listaDePlantas;
 	private List<Modelo> listaDeModelosAProducir;
 
@@ -24,9 +24,9 @@ public class Fabrica {
 		return this.listaDeModelosAProducir.contains(unModelo);
 	}
 
-	public Boolean tieneStockDe(Modelo modeloMock) {
+	public Boolean tieneStockDe(Modelo modelo) {
 		List<Planta> listaPlantasQueProducenUnModelo = new ArrayList<Planta>();
-		listaPlantasQueProducenUnModelo = listaDePlantas.stream().filter(planta -> planta.tieneStockDe(modeloMock)).collect(Collectors.toList());
+		listaPlantasQueProducenUnModelo = listaDePlantas.stream().filter(planta -> planta.tieneStockDe(modelo)).collect(Collectors.toList());
 		return listaPlantasQueProducenUnModelo.size()>0;
 	}
 /*
