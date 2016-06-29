@@ -42,7 +42,12 @@ public class CompaniaAseguradoraTest {
 		assertEquals(companiaAseguradora.montoAAbonarPorParticipante(), new Float(60));
 	}
 	
-	
+	@Test
+	public void testDadoUnaCompaniaAseguradoraElMontoAAbonarPorUnParticipanteDeEdad51YPlaDeAhorroConVehiculoDe1000Es110(){
+		when(clienteMock.obtenerEdad()).thenReturn(51);
+		when(planDeAhorroMock.precioDelVehiculo()).thenReturn((float)1000);	
+		assertEquals(companiaAseguradora.montoAAbonarPorParticipante(), new Float(110));
+	}
 
 	
 }

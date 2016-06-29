@@ -13,17 +13,18 @@ public class CompaniaAseguradora {
 	}
 
 	private Float montoPorVehiculo() {
-		return this.planDeAhorro.precioDelVehiculo() * (float)0.5;
+		return new Float(this.planDeAhorro.precioDelVehiculo() * 0.05);
 	}
 
 	private Float montoPorParticipante() {
 		Integer edadParticipante = this.participante.obtenerCliente().obtenerEdad();
-		Float dineroAPagar=new Float(50);
 		if(edadParticipante >= 50){
-			Integer plusPorEdad = edadParticipante - 50;
-			dineroAPagar+=(10 * (float)plusPorEdad);
+			return new Float(((edadParticipante -50 )*10)+50);
 		}
-		return dineroAPagar;
+		else
+		{
+		return new Float(50);
+		}
 	}
 
 	
