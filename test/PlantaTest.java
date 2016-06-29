@@ -19,7 +19,8 @@ public class PlantaTest {
 		//modeloKa = new Modelo("Ka", 2016, 5, true);
 		//modeloFocus = new Modelo("Focus", 2016, 5, true);
 		listaDeModelos = new ArrayList<Modelo>();
-		miPlanta = new Planta(listaDeModelos, "Liniers 724");
+		miPlanta = new Planta( "Liniers 724");
+		miPlanta.agregarListaModelos(listaDeModelos);
 	}
 	
 	@Test

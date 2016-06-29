@@ -2,13 +2,12 @@
 public class CuponDeAdjudicacion {
 
 	private PlanDeAhorro planDeAhorro;
-	private Flete flete;
+	private Float montoAPagarPorFlete;
 	private Participante unParticipante;
 
-	public CuponDeAdjudicacion(PlanDeAhorro planDeAhorro, Flete flete, Participante unParticipante) {
+	public CuponDeAdjudicacion(PlanDeAhorro planDeAhorro, Participante unParticipante, Float montoAPagarPorFlete) {
 		this.planDeAhorro = planDeAhorro;
-		this.flete = flete;
-		this.unParticipante = unParticipante; 
+		this.montoAPagarPorFlete = montoAPagarPorFlete; 
 	}
 
 	public Participante conocerParticipanteGanador() {

@@ -9,14 +9,13 @@ public class CuponDeAdjudicacionTest {
 
 	private CuponDeAdjudicacion cuponDeAdjudicacion;
 	private PlanDeAhorro planDeAhorro;
-	private Flete flete;
+	private Float montoAPagarPorFlete =0f;
 	private Participante unParticipante;
 
 	@Before
 	public void setUp() throws Exception {
 		planDeAhorro = mock(PlanDeAhorro.class);
-		flete = mock(Flete.class);
-		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, flete, unParticipante);
+		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, unParticipante, montoAPagarPorFlete);
 	}
 
 	@Test

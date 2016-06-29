@@ -8,15 +8,19 @@ public class Planta {
 	private String direccion;
 	private List<Stock> stocks;
 
-	public Planta(List<Modelo> listaDeModelos, String direccion) {
+	public Planta(String direccion) {
 		this.direccion = direccion;
 		this.stocks = new ArrayList<Stock>();
-		this.listaDeModelos = listaDeModelos;
+		
+	}
+
+	public void agregarListaModelos(List<Modelo> listaModelos){
+		this.listaDeModelos = listaModelos;
 		for (Modelo modelo : listaDeModelos) {
 			agregarModeloAProducir(modelo);
 		}
 	}
-
+	
 	public List<Modelo> listaDeModelos() {
 		return this.listaDeModelos;
 	}
