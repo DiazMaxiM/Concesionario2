@@ -6,5 +6,8 @@ public class Financiacion100 implements TipoDeFinanciacion {
 		float valorVehiculo = plan.precioDelVehiculo();
 		return (valorVehiculo/cantidadDeCuotas);
 	}
+	public float montoPagoEfectivoEnAdjudicacion(PlanDeAhorro plan){
+		return 0;
+	}
 
 }

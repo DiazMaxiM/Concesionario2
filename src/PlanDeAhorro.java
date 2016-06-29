@@ -93,6 +93,10 @@ public PlanDeAhorro(ModalidadDeAdjudicacion modalidad,Integer numeroDeGrupo,Tipo
 	public float precioDelVehiculo() {
 		return (float)this.modelo.precioMovil();
 	}
+	public float montoAPagarPorAdjudicacion() {
+		return this.porcentajeDeFinanciacion.montoPagoEfectivoEnAdjudicacion(this);
+		
+	}
 
 		   
 }

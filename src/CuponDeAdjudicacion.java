@@ -2,11 +2,12 @@
 public class CuponDeAdjudicacion {
 
 	private PlanDeAhorro planDeAhorro;
-	private Float montoAPagarPorFlete;
+	private float montoAPagarPorFlete;
 	private Participante unParticipante;
 
-	public CuponDeAdjudicacion(PlanDeAhorro planDeAhorro, Participante unParticipante, Float montoAPagarPorFlete) {
+	public CuponDeAdjudicacion(PlanDeAhorro planDeAhorro, Participante unParticipante, float montoAPagarPorFlete) {
 		this.planDeAhorro = planDeAhorro;
+		this.unParticipante =unParticipante;
 		this.montoAPagarPorFlete = montoAPagarPorFlete; 
 	}
 
@@ -14,12 +15,9 @@ public class CuponDeAdjudicacion {
 		return this.unParticipante;
 	}
 
-	public Float gastoPorPlan() {
-		/*if(planDeAhorro.esPlan7030()){
-			return planDeAhorro.precioDelVehiculo() * (float)0.30;
-		}*/
-
-		return (float)0;
+	
+	public float gastoTotalCupon(){
+	return	this.planDeAhorro.montoAPagarPorAdjudicacion()+ this.montoAPagarPorFlete;
 	}
 
 }

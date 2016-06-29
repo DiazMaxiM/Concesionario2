@@ -9,30 +9,41 @@ public class CuponDeAdjudicacionTest {
 
 	private CuponDeAdjudicacion cuponDeAdjudicacion;
 	private PlanDeAhorro planDeAhorro;
-	private Float montoAPagarPorFlete =0f;
+	private float montoAPagarPorFlete =0f;
 	private Participante unParticipante;
 
 	@Before
 	public void setUp() throws Exception {
 		planDeAhorro = mock(PlanDeAhorro.class);
-		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, unParticipante, montoAPagarPorFlete);
 	}
 
 	@Test
 	public void testDadoUnCuponDeAdjudicacionDeUnParticipanteSiLePreguntoSiEsDeEseParticipanteRespondeTrue() {
+		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, unParticipante, montoAPagarPorFlete);
 		assertEquals(cuponDeAdjudicacion.conocerParticipanteGanador(), unParticipante);
 	}
 	
 	@Test
 	public void testDadoUnCuponDeAdjudicacionDeUnParticipanteSiLePreguntoSiEsDeOtroarticipanteRespondeFalse() {
 		Participante otroParticipante = mock(Participante.class);
+		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, unParticipante, montoAPagarPorFlete);
 		assertNotEquals(cuponDeAdjudicacion.conocerParticipanteGanador(), otroParticipante);
 	}
 	
 	@Test
 	public void testDadoUnCuponDeAdjudicacionPorUnPlan100SiLePreguntoSuGastoPorPlanDevuelve0(){
-		//when(planDeAhorro.gastoPorPlan()).thenReturn(0);
-		assertTrue(cuponDeAdjudicacion.gastoPorPlan() == 0);
+		montoAPagarPorFlete = 100;
+		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, unParticipante, montoAPagarPorFlete);
+		when(planDeAhorro.montoAPagarPorAdjudicacion()).thenReturn(0f);
+		assertTrue(cuponDeAdjudicacion.gastoTotalCupon() == 100);
+	}
+	
+	@Test
+	public void testDadoUnCuponDeAdjudicacionPorUnPlan7030SiLePreguntoSuGastoPorPlanDevuelve0(){
+		montoAPagarPorFlete = 100;
+		cuponDeAdjudicacion = new CuponDeAdjudicacion(planDeAhorro, unParticipante, montoAPagarPorFlete);
+		when(planDeAhorro.montoAPagarPorAdjudicacion()).thenReturn(100f);
+		assertTrue(cuponDeAdjudicacion.gastoTotalCupon() == 200);
 	}
 
 }

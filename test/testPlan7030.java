@@ -22,6 +22,16 @@ public class testPlan7030 {
 		assertTrue(miFinanciacion.montoDeLaCuota(miPlan)==1000);
 	
 	}
+	@Test
+	public void testmontoPagoEfectivoEnAdjudicacion(){
+TipoDeFinanciacion miFinanciacion = new Financiacion7030();
+		
+		PlanDeAhorro miPlan= mock(PlanDeAhorro.class);
+		
+		when(miPlan.precioDelVehiculo()).thenReturn((float) 100000);
+		
+		assertTrue(miFinanciacion.montoPagoEfectivoEnAdjudicacion(miPlan)==30000);
+	}
 
 
 }
