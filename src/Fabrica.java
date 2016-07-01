@@ -45,36 +45,36 @@ public class Fabrica {
 		
 	}
 
-	public Planta plantaMasCercanaQueProduceConStock(Modelo modeloFocus) throws ExceptionFaltanteStock{
-		if(this.tieneStockDe(modeloFocus)){
-			this.listaDePlantas = listaDePlantas.stream().filter(planta->planta.tieneStockDe(modeloFocus)).collect(Collectors.toList());
-			this.listaDePlantas.stream().min((Planta plantaUno, Planta plantaDos) -> plantaUno.puntoEnElMapa().compareTo(plantaDos.puntoEnElMapa())).get();
-			return this.listaDePlantas.get(0);
+*/	public Planta plantaMasCercanaQueProduceConStock(Concesionaria concesionaria,Modelo modeloFocus) throws  ExceptionErrorAlObtenerDistancia{
+		String direccionConcesionaria = concesionaria.obtenerDireccion();
+			
+		this.listaDePlantas = listaDePlantas.stream().filter(planta->planta.tieneStockDe(modeloFocus)).collect(Collectors.toList());
+		Integer distanciaMin=concesionaria.obtenerMapa().obtenerDistancia(direccionConcesionaria, listaDePlantas.get(0).obtenerDireccion());;
+		Planta plantaMasCercana=listaDePlantas.get(0);
+		for (Planta planta : listaDePlantas) {
+			
+			Integer distancia = concesionaria.obtenerMapa().obtenerDistancia(direccionConcesionaria, planta.obtenerDireccion());
+			if (distanciaMin == -1){
+				 plantaMasCercana= planta;
+				distanciaMin= distancia;
+			}
+			else{
+				if (distancia < distanciaMin){
+					plantaMasCercana= planta;
+					distanciaMin= distancia;
+				}
+			}
 		}
-		else{
-			throw new ExceptionFaltanteStock();
-		}
+		return plantaMasCercana;
 	}
 
-	/**
-	 * @return: Retorna el stock total de todas las plantas.
-	 */
-	public List<Stock> stockDeProduccion() 
-	{
-		// IMPLEMEEENTAME! IMPLEMEEENTAME! X3
-		return null;
+
+
+	public void entregarVehiculo(Modelo modeloAAdjudicar) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	/**
-	 * PROPOSITO: Entregar un vehiculo del modeloAAdjudicar mas cercano a la Concesionaria.
-	 * @param modeloAAdjudicar: Es el modelo de vehiculo a adjudicar.
-	 */
-	/*public void entregarVehiculo(Modelo modeloAAdjudicar) 
-	{
-		// HOLA! :D ME IMPLEMENTAS? SI? SI? SI? OwO
-	}
-	*/
-	
 	
 	
 	

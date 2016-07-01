@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 public class Planta {
 
-	private List<Modelo> listaDeModelos;// = new ArrayList<Modelo>();
+	private List<Modelo> listaDeModelos= new ArrayList<Modelo>();
 	private String direccion;
 	private List<Stock> stocks;
 
@@ -14,9 +14,8 @@ public class Planta {
 		
 	}
 
-	public void agregarListaModelos(List<Modelo> listaModelos){
-		this.listaDeModelos = listaModelos;
-		for (Modelo modelo : listaDeModelos) {
+	public void agregarListaModelos(List<Modelo> listaModelosAAgregar){
+		for (Modelo modelo : listaModelosAAgregar) {
 			agregarModeloAProducir(modelo);
 		}
 	}

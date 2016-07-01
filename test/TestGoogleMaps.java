@@ -11,7 +11,7 @@ public class TestGoogleMaps {
 	}
 
 	@Test
-	public void test() throws Exception {
+	public void test() throws ExceptionErrorAlObtenerDistancia {
 		String direccion1 ="Luciano Valette 1755,Luis Guillon,Buenos Aires,Argentina";
 		String direccion2 ="Saenz Peña 300,Bernal,Buenos Aires,Argentina";
 		GoogleMap miMapa = new GoogleMap();
@@ -21,5 +21,11 @@ public class TestGoogleMaps {
 		
 		
 	}
-
+	@Test(expected=ExceptionErrorAlObtenerDistancia.class)
+	public void testErrorAlObtenerDireccionGoogle() throws ExceptionErrorAlObtenerDistancia {
+		String direccion1 ="";
+		String direccion2 ="";
+		GoogleMap miMapa = new GoogleMap();
+		Integer distancia = miMapa.obtenerDistancia(direccion1, direccion2);		
+	}
 }

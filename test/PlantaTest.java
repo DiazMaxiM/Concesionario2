@@ -16,17 +16,18 @@ public class PlantaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		//modeloKa = new Modelo("Ka", 2016, 5, true);
-		//modeloFocus = new Modelo("Focus", 2016, 5, true);
 		listaDeModelos = new ArrayList<Modelo>();
 		miPlanta = new Planta( "Liniers 724");
-		miPlanta.agregarListaModelos(listaDeModelos);
-	}
+		}
 	
 	@Test
 	public void testPlantaConsistente() {
+		listaDeModelos.add(modeloFocus);
+		miPlanta.agregarListaModelos(listaDeModelos);
 		assertTrue(miPlanta.obtenerDireccion().equals("Liniers 724"));
 		assertEquals(miPlanta.listaDeModelos(),listaDeModelos);
+		miPlanta.agregarListaModelos(listaDeModelos);
+		
 	}
 	
 	@Test

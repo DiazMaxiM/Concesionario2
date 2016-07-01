@@ -29,6 +29,16 @@ public class testPlanDeAhorro {
 		assertEquals(miPlan.cantidadDeParticipantes(),(Integer)0);
 	}
 	@Test
+	public void testParaConstructor() {
+		when(modelo.precioMovil()).thenReturn(1000f);
+		assertEquals(miPlan.cantidadDeParticipantes(),(Integer)0);
+		assertEquals(miPlan.cantidadDeCuotas(),(Integer)50);
+		assertEquals(miPlan.obtenerModelo(),modelo);
+		assertTrue(miPlan.precioDelVehiculo()==1000f);
+		assertTrue(miPlan.montoAPagarPorAdjudicacion()==0f);
+		
+	}
+	@Test
 	public void testClientesQueNoAdjudicaron(){
 		List<Participante> listaDeParticipantesQueNoAdjudicaron = new ArrayList<Participante>();
 		listaDeParticipantesQueNoAdjudicaron.add(miParticipante2);

@@ -1,12 +1,15 @@
 import java.io.*;
 import java.net.*;
+
 import javax.xml.parsers.*;
 import org.xml.sax.InputSource;
 import org.w3c.dom.*;
 
 public class GoogleMap {
-public Integer obtenerDistancia(String direccion1,String direccion2) throws Exception {
-	
+public Integer obtenerDistancia(String direccion1,String direccion2) throws ExceptionErrorAlObtenerDistancia   {
+    String distancia = "0";
+
+	try{
 	 direccion1=URLEncoder.encode(direccion1, "UTF-8");
 	 direccion2=URLEncoder.encode(direccion2, "UTF-8");
 	
@@ -30,7 +33,6 @@ public Integer obtenerDistancia(String direccion1,String direccion2) throws Exce
         }
         br.close();
         
-    String distancia = "";
 	
     DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
     DocumentBuilder db = dbf.newDocumentBuilder();
@@ -47,6 +49,11 @@ public Integer obtenerDistancia(String direccion1,String direccion2) throws Exce
     NodeList nodo4 = elemento3.getElementsByTagName("value");
     Element elemento4 = (Element) nodo4.item(0);
     distancia = elemento4.getTextContent();
+	}
+	catch(Exception e){
+		throw new ExceptionErrorAlObtenerDistancia();
+	}
+	
     return new Integer(distancia);
    
 }

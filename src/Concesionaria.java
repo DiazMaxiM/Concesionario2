@@ -18,14 +18,13 @@ public class Concesionaria
 	private String direccion;
 	private GoogleMap mapa;
 	private Flete flete;
-	private List<Stock> stockDeVehiculos;
 	private CompaniaAseguradora companiaAseguradora;
 	private List<CuponDeAdjudicacion> cuponesDeAdjudicacion;
 	/**
 	 * @param unaFabrica : Es la fabrica asociada a la concesionararia que produce los autos a vender.
 	 * @param unaDireccion : Es la direccion que tendra la concesionaria.
 	 */
-	public Concesionaria (Fabrica unaFabrica, String unaDireccion, GoogleMap unMapa, Flete unFlete, List<Stock> stocksDeVehiculos, CompaniaAseguradora unaCompaniaAseguradora, List<CuponDeAdjudicacion> cupones)
+	public Concesionaria (Fabrica unaFabrica, String unaDireccion, GoogleMap unMapa, Flete unFlete,  CompaniaAseguradora unaCompaniaAseguradora)
 	{
 		this.clientes = new ArrayList<Cliente> ();
 		this.planesDeAhorro = new ArrayList<PlanDeAhorro>();
@@ -33,24 +32,13 @@ public class Concesionaria
 		this.cambiarDireccion(unaDireccion);
 		this.cambiarMapa(unMapa);
 		this.cambiarFlete(unFlete);
-		this.cambiarStockDeVehiculos(stocksDeVehiculos);
 		this.cambiarCompaniaAseguradora(unaCompaniaAseguradora);
-		this.cambiarCuponesDeAdjudicacion(cupones);
-	}
-
-	private void cambiarCuponesDeAdjudicacion(List<CuponDeAdjudicacion> cupones) 
-	{
-		this.cuponesDeAdjudicacion = cupones;
+		this.cuponesDeAdjudicacion = new ArrayList<CuponDeAdjudicacion>();
 	}
 	
 	private void cambiarCompaniaAseguradora(CompaniaAseguradora unaCompaniaAseguradora) 
 	{
 		this.companiaAseguradora = unaCompaniaAseguradora;
-	}
-
-	private void cambiarStockDeVehiculos(List<Stock> stocksDeVehiculos) 
-	{
-		this.stockDeVehiculos = stocksDeVehiculos;
 	}
 
 	private void cambiarFlete(Flete unFlete) 
@@ -128,24 +116,7 @@ public class Concesionaria
 		this.planesDeAhorro = this.planesDeAhorro.stream().sorted((plan1, plan2 )-> plan1.cantidadDeParticipantes().compareTo(plan2.cantidadDeParticipantes())).collect(Collectors.toList());
 	}
 
-	/**
-	 * @param unModelo = Es el modelo de vehiculo que se solicita a la fabrica.
-	 * @return Retorna la Planta mas cercana a la concesionaria que fabrique el modelo solicitado.
-	 * @throws SinVehiculosDelModeloSolicitado = Error en el caso de que la fabrica no tenga stock de ese modelo.
-	 */
-	public Planta plantaMasCercana(Modelo unModelo) throws SinVehiculosDelModeloSolicitado
-	{
-		if (obtenerFabrica().tieneStockDe(unModelo))
-		{
-			return obtenerFabrica().plantaMasCercanaQueProduce(unModelo);
-		}
-		else
-		{
-			throw new SinVehiculosDelModeloSolicitado();
-		}
-	}
-	
-	
+
 	/**
 	 * @return : Retorna la fabrica con la que trabaja la concesionaria.
 	 */
@@ -158,18 +129,19 @@ public class Concesionaria
 	 * @param unaPlanta : Es la Planta desde la cual estoy haciendo el envio.
 	 * @param unFlete : Es el Flete que determinara el costo del envio.
 	 * @return : Devuelve el costo total del flete hasta la ubicacion de la Planta.
+	 * @throws ExceptionErrorAlObtenerDistancia 
 	 */
-	public int costoDeEnvio(Planta unaPlanta, Flete unFlete) 
+	public int costoDeEnvio(Planta unaPlanta, Flete unFlete) throws ExceptionErrorAlObtenerDistancia 
 	{
 		return unFlete.costo(distanciaVial(unaPlanta));
 	}
 
-	public Integer distanciaVial(Planta unaPlanta) 
+	public Integer distanciaVial(Planta unaPlanta) throws ExceptionErrorAlObtenerDistancia 
 	{
-		return obtenerMapa().obtenerDistancia(obtenerDireccion(), unaPlanta.obtenerDireccion());
+		return obtenerMapa().obtenerDistancia(this.obtenerDireccion(), unaPlanta.obtenerDireccion());
 	}
 
-	private GoogleMap obtenerMapa() 
+	public GoogleMap obtenerMapa() 
 	{
 		return this.mapa;
 	}
@@ -190,63 +162,26 @@ public class Concesionaria
 	 * @param plantas = Son todas las plantas que producen los vehiculos.
 	 * @return : Devuelve True si el stock que tiene la concesionaria es igual al de las plantas, de lo contrario devuelve False.
 	 */
-	public Boolean tieneLosMismosStocks() 
-	{
-		return compararStocks(obtenerStockDeVehiculos(), obtenerFabrica().stockDeProduccion() );
-	}
 	
-	public Boolean compararStocks(List<Stock> stockC, List<Stock> stockF) 
-	{
-		return (compararCantidadDeModelos(stockC, stockF) && compararLosStock(stockC, stockF));
-	}
-
-	private Boolean compararLosStock(List<Stock> stockC, List<Stock> stockF) 
-	{
-		Boolean resultado = true;
-		for (int index= 0; index < stockC.size(); index++)
-		{
-			resultado &= (stockC.get(index).esIgualA (stockF.get(index)));
-		}
-		return resultado;
-	}
-
-
-	private Boolean compararCantidadDeModelos(List<Stock> stockC, List<Stock> stockF) 
-	{
-		return (stockC.size() == stockF.size());
-	}
-
-	public List<Stock> obtenerStockDeVehiculos() 
-	{
-		return stockDeVehiculos;
-	}
-
 	public CompaniaAseguradora obtenerCompaniaAseguradora() 
 	{
 		return companiaAseguradora;
 	}
 
-	public void ejecutarAdjudicaciones() throws ExceptionAdjudicarPlanSinParticipantes 
+	public void ejecutarAdjudicaciones() throws ExceptionAdjudicarPlanSinParticipantes, ExceptionErrorAlObtenerDistancia 
 	{
-		//obtenerPlanesDeAhorro().stream().forEach(plan -> adjudicarPlan(plan.adjudicar() ));
+		//obtenerPlanesDeAhorro().stream().forEach(plan -> adjudicarPlan(plan));
 	}
 
-	private void adjudicarPlan (Participante participante) 
+	private void adjudicarPlan (PlanDeAhorro planAAdjudicar) throws ExceptionAdjudicarPlanSinParticipantes, ExceptionErrorAlObtenerDistancia
 	{
-		// Entregar el vehiculo
-		// Generar el cupon
-		// Registrarlo en la concesionaria
+		Participante ganador=planAAdjudicar.adjudicar();
+		Planta pantaMasCercana =miFabrica.plantaMasCercanaQueProduceConStock(this, planAAdjudicar.obtenerModelo());
+		float precio =this.flete.costo(this.distanciaVial(pantaMasCercana));
+		this.registrarCuponDeAdjudicacion(new CuponDeAdjudicacion(planAAdjudicar, ganador, precio));
 	}
 	
-	public Integer obtenerStockDelModelo(Modelo modeloABuscar) 
-	{
-		return ((stockDeVehiculos.stream().filter(stock -> stock.esStockDe(modeloABuscar) )).findFirst().get()).totalStock();
-	}
 
-	public void actualizarStockDeVehiculos() 
-	{
-		cambiarStockDeVehiculos(obtenerFabrica().stockDeProduccion());
-	}
 
 	public void adjudicarVehiculo(Modelo modeloAAdjudicar) 
 	{

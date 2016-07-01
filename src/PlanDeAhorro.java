@@ -97,6 +97,9 @@ public PlanDeAhorro(ModalidadDeAdjudicacion modalidad,Integer numeroDeGrupo,Tipo
 		return this.porcentajeDeFinanciacion.montoPagoEfectivoEnAdjudicacion(this);
 		
 	}
+	public Modelo obtenerModelo(){
+		return this.modelo;
+	}
 
 		   
 }
